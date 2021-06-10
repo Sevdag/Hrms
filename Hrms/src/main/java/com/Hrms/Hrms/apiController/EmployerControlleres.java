@@ -22,12 +22,14 @@ public class EmployerControlleres {
 		super();
 		this.employerService = employerService;
 	}
-@RequestMapping("/getall")
+
+	@RequestMapping("/getall")
 	public DataResult<List<Employer>> getall() {
 		return this.employerService.getall();
 	}
-@PostMapping("/add")
-public Result add(Employer employer) {
-	return this.employerService.add(employer);
-}
+
+	@PostMapping("/add")
+	public Result add(Employer employer) {
+		return this.employerService.add(employer);
+	}
 }

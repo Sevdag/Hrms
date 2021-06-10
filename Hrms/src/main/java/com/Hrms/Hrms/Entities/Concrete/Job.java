@@ -13,29 +13,19 @@ import lombok.NoArgsConstructor;
 
 @Data
 @Entity
-@Table(name = "Job")
+@Table(name = "job")
 @AllArgsConstructor
 @NoArgsConstructor
 
 public class Job {
 	@Id
 	@GeneratedValue(strategy =GenerationType.IDENTITY)
-	@Column(name = "id")
+	@Column(name = "id",nullable = false)
 	private int id;
 	
-	@Column(name = "jobName")
+	@Column(name = "job_name",nullable = false)
 	private String jobName;
 	
-	@Column(name = "jobDetails")
-	private String jobDetails;
 	
-	@Column(name = "isActive")
-	private boolean isActive;
-	
-	@Column(name = "minSalary")
-	private int minSalary;
-	
-	@Column(name = "maxSalary")
-	private int maxSalary;
 	
 }

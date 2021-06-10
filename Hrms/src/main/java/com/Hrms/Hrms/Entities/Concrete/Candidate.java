@@ -1,5 +1,6 @@
 package com.Hrms.Hrms.Entities.Concrete;
 
+import java.sql.Date;
 import java.time.LocalDate;
 
 import javax.persistence.Column;
@@ -7,41 +8,37 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "Candidates")
+@Table(name = "candidates")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Candidate {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
-	private int id;
+@PrimaryKeyJoinColumn(name = "user_id")
+public class Candidate extends User {
 
-	@Column(name = "firstName")
+	@Column(name = "first_name", nullable = false)
 	private String firstName;
 
-	@Column(name = "lastName")
+	@Column(name = "last_name", nullable = false)
 	private String lastName;
-
-	@Column(name = "nationaltyId")
+	
+	@Column(name = "nationalty_id",nullable = false)
+	@Size(max = 11)
 	private String nationaltyId;
-
-	@Column(name = "dateOfBirth", columnDefinition = "Default LocalDate CURRENT_STATE ")
-	private LocalDate dateOfBirth=LocalDate.now();
-
-	@Column(name = "email")
-	private String email;
-
-	@Column(name = "password")
-	private String password;
-
-	@Column(name = "passwordAgain")
-	private String passWordAgain;
+	
+	@JsonFormat(pattern="yyyy-MM-dd")
+	@Column(name = "date_of_birth",nullable = false)
+	private Date dateOfBirth;
 }

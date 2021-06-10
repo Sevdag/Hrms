@@ -1,10 +1,16 @@
 package com.Hrms.Hrms.Entities.Concrete;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -14,28 +20,26 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity 
-@Table(name = "Employers")
-public class Employer {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
-	private int id;
+@Table(name = "employers")
+@PrimaryKeyJoinColumn(name = "user_id")
+public class Employer extends User{
 
-	@Column(name = "companyName")
+	@Column(name = "companyName",nullable = false)
 	private String companyName;
 
-	@Column(name = "website")
+	@Column(name = "website",nullable =  false)
 	private String website;
 
-	@Column(name = "email")
-	private String email;
 
-	@Column(name = "phoneNumber")
+	@Column(name = "phoneNumber",nullable =  false)
 	private String phoneNumber;
-
-	@Column(name = "password")
-	private String password;
-
-	@Column(name = "passwordAgain")
-	private String passwordAgain;
+	
+	
+	@ManyToOne()
+	@JoinColumn(name = "cities_id")
+	private Cities cities;
+	
+	@OneToMany(mappedBy = "employer")
+	List<JobPosting> jobPostings;
 }
+	
