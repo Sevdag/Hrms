@@ -45,6 +45,10 @@ public class JobPosting {
 	@JsonFormat(pattern = "yyyy-MM-dd")
 	private Date deadline;
 	
+	@Column(name = "is_active")
+	private boolean isActive;
+	
+	
 	@ManyToOne()
 	@JoinColumn(name = "employer_id")
 	private Employer employer;
