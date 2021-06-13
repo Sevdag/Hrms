@@ -41,5 +41,9 @@ public class Employer extends User{
 	
 	@OneToMany(mappedBy = "employer")
 	List<JobPosting> jobPostings;
+	
+	 @ManyToOne()
+	 @JoinColumn(name  = "jobPosition_id")
+	private  JobPosition jobPosition;
 }
 	

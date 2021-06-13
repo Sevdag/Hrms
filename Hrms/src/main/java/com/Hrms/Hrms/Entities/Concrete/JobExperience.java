@@ -1,6 +1,6 @@
 package com.Hrms.Hrms.Entities.Concrete;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -27,7 +27,7 @@ import lombok.NoArgsConstructor;
 public class JobExperience {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
+	@Column(name = "id", nullable = false)
 	private int id;
 	
 	@NotBlank
@@ -40,10 +40,10 @@ public class JobExperience {
 	
 	@NotBlank
 	@Column(name="start_date")
-	private LocalDate startDate;
+	private Date startDate;
 	
 	@Column(name="end_date")
-	private LocalDate endDate;
+	private Date endDate;
 	
 	@ManyToOne
 	@JsonIgnore
