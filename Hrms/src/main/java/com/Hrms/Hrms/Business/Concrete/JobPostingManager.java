@@ -15,11 +15,11 @@ import com.Hrms.Hrms.DataAccess.Abstract.JobPostingDao;
 import com.Hrms.Hrms.Entities.Concrete.JobPosting;
 
 @Service
-public class JobPostingManger implements JobPostingService{
+public class JobPostingManager implements JobPostingService{
 	private JobPostingDao jobPostingDao;
 
 	@Autowired
-	public JobPostingManger(JobPostingDao jobPostingDao) {
+	public JobPostingManager(JobPostingDao jobPostingDao) {
 		super();
 		this.jobPostingDao = jobPostingDao;
 	}
