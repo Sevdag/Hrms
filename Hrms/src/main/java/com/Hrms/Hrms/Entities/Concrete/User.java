@@ -37,6 +37,10 @@ public class User {
 	@NotBlank
 	private String password;
 	
+	@Column(name = "repeatPassword",nullable = false)
+	@NotBlank
+	private String repeatPassword;
+	
 	
 
 	

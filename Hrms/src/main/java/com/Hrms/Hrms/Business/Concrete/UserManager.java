@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.Hrms.Hrms.Business.Abstract.UserService;
 import com.Hrms.Hrms.Core.utilities.results.DataResult;
+import com.Hrms.Hrms.Core.utilities.results.ErrorResult;
 import com.Hrms.Hrms.Core.utilities.results.Result;
 import com.Hrms.Hrms.Core.utilities.results.SuccessDataResult;
 import com.Hrms.Hrms.Core.utilities.results.SuccessResult;
@@ -25,14 +26,24 @@ public class UserManager implements UserService {
 
 	@Override
 	public Result add(User user) {
-this.userDao.save(user);
+
+		if (this.findByEmail(user.getEmail()) != null) {
+			return new ErrorResult("Aynı Email Var");
+		}
+
+		this.userDao.save(user);
 		return new SuccessResult("Eklendi");
 	}
 
 	@Override
 	public DataResult<List<User>> getall() {
-		// TODO Auto-generated method stub
-		return new SuccessDataResult<List<User>>(this.userDao.findAll(),"Listelendi");
+		return new SuccessDataResult<List<User>>(this.userDao.findAll(), "Listelendi");
+	}
+
+	@Override
+	public User findByEmail(String email) {
+		return this.userDao.findByEmail(email);
+
 	}
 
 }
