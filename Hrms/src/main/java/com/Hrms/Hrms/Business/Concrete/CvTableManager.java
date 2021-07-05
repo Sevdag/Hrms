@@ -12,6 +12,7 @@ import com.Hrms.Hrms.Core.utilities.results.SuccessDataResult;
 import com.Hrms.Hrms.Core.utilities.results.SuccessResult;
 import com.Hrms.Hrms.DataAccess.Abstract.CvTableDao;
 import com.Hrms.Hrms.Entities.Concrete.CvTable;
+import com.Hrms.Hrms.Entities.Concrete.dtos.CandidateWithCvTable;
 @Service
 public class CvTableManager implements CvTableService {
 
@@ -34,6 +35,8 @@ public class CvTableManager implements CvTableService {
 		
 		return new SuccessDataResult<List<CvTable>>(this.cvTableDao.findAll(),"Listelendi");
 	}
+
+
 	
 	
 

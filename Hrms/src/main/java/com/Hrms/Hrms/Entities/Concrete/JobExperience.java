@@ -43,12 +43,12 @@ public class JobExperience {
 	private Date startDate;
 	
 	@Column(name="end_date")
-	private Date endDate;
+	private Date jobEndDate;
 	
 	@ManyToOne
 	@JsonIgnore
-    @JoinColumn(name = "candidate_id")
-    private Candidate candidate;
+    @JoinColumn(name = "cvTable_id")
+    private CvTable cvTable;
 
 	
 

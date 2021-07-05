@@ -31,6 +31,7 @@ public class Cities {
 	
 	
 	@OneToMany(mappedBy = "cities")
-	private List<Employer> employers;
+	private List<JobPosting> jobPosting;
+	
 
 }

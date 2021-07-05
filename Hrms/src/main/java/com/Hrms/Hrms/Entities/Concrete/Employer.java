@@ -35,15 +35,15 @@ public class Employer extends User{
 	private String phoneNumber;
 	
 	
-	@ManyToOne()
-	@JoinColumn(name = "cities_id")
-	private Cities cities;
+
 	
 	@OneToMany(mappedBy = "employer")
 	List<JobPosting> jobPostings;
 	
-	 @ManyToOne()
-	 @JoinColumn(name  = "jobPosition_id")
-	private  JobPosition jobPosition;
+	
+	  @ManyToOne()	  
+	  @JoinColumn(name = "jobPosition_id") 
+	  private JobPosition jobPosition;
+	 
 }
 	

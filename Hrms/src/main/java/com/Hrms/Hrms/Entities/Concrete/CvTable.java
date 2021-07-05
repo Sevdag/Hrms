@@ -53,5 +53,9 @@ public class CvTable {
 	
 	@OneToMany(mappedBy = "cvTable")
 	private List<ProgrammingLanguage> programmingLanguages;
+	
+	
+	@OneToMany(mappedBy = "cvTable")
+	private List<JobExperience> jobExperiences;
 
 }

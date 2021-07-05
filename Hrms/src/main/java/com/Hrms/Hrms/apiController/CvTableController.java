@@ -12,6 +12,7 @@ import com.Hrms.Hrms.Business.Abstract.CvTableService;
 import com.Hrms.Hrms.Core.utilities.results.DataResult;
 import com.Hrms.Hrms.Core.utilities.results.Result;
 import com.Hrms.Hrms.Entities.Concrete.CvTable;
+import com.Hrms.Hrms.Entities.Concrete.dtos.CandidateWithCvTable;
 
 @RestController
 @RequestMapping("/api/cvTable")
@@ -32,9 +33,10 @@ public class CvTableController {
 		return this.cvTableService.add(cvTable);
 		
 	}
-	@GetMapping("/getall")
+	@RequestMapping("/getall")
 	public DataResult <List<CvTable>> getAll(){
 		return this.cvTableService.getAll();
 	}
+	
 	
 }

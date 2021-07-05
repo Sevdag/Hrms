@@ -13,9 +13,10 @@ import com.Hrms.Hrms.Core.utilities.results.SuccessDataResult;
 import com.Hrms.Hrms.Core.utilities.results.SuccessResult;
 import com.Hrms.Hrms.DataAccess.Abstract.JobPostingDao;
 import com.Hrms.Hrms.Entities.Concrete.JobPosting;
+import com.Hrms.Hrms.Entities.Concrete.dtos.EmployerWithJobPostingDto;
 
 @Service
-public class JobPostingManager implements JobPostingService{
+public class JobPostingManager implements JobPostingService {
 	private JobPostingDao jobPostingDao;
 
 	@Autowired
@@ -27,23 +28,36 @@ public class JobPostingManager implements JobPostingService{
 	@Override
 	public Result add(JobPosting jobPosting) {
 		this.jobPostingDao.save(jobPosting);
-		
+
 		return new SuccessResult("Eklendi");
 	}
 
 	@Override
 	public DataResult<List<JobPosting>> getall() {
-		
+
 		return new SuccessDataResult<List<JobPosting>>(this.jobPostingDao.findAll());
 	}
 
+	
+
 	@Override
-	public DataResult<List<JobPosting>> getAllSorted() {
-		
-			Sort sort = Sort.by(Sort.Direction.DESC,"openPosition");
-			return new SuccessDataResult<List<JobPosting>>
-			(this.jobPostingDao.findAll(sort),"Başarılı");
-		
+	public DataResult<List<EmployerWithJobPostingDto>> getAllActivedJob() {
+		// TODO Auto-generated method stub
+		return new SuccessDataResult<List<EmployerWithJobPostingDto>>(this.jobPostingDao.getAllActivedJob());
 	}
+
+	@Override
+	public DataResult<List<EmployerWithJobPostingDto>> getAllPublishDate() {
+		// TODO Auto-generated method stub
+		return new SuccessDataResult<List<EmployerWithJobPostingDto>>(this.jobPostingDao.getAllPublishDate());
+	}
+
+	@Override
+	public DataResult<List<EmployerWithJobPostingDto>> getCompany(String companyName) {
+		// TODO Auto-generated method stub
+		return new SuccessDataResult<List<EmployerWithJobPostingDto>>(this.jobPostingDao.getCompany(companyName));
+	}
+
+	
 
 }

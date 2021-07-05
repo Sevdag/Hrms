@@ -25,7 +25,7 @@ public class ProgrammingLanguage {
 	private int id;
 	
 	@Column(name = "language_name")
-	private String languageName;
+	private String programmingLanguageName;
 	
 	@ManyToOne()
 	@JoinColumn(name = "cvTable_id")

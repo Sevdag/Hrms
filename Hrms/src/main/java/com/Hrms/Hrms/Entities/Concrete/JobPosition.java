@@ -40,9 +40,13 @@ public class JobPosition {
 	private boolean isDeleted = false;
 	
 	
-	  @OneToMany(mappedBy = "jobPosition") 
-	  private List<Employer> employers;
-	 	
+	
+	 @OneToMany(mappedBy = "jobPosition") 
+	 private List<Employer> employers;
+
+	 
+	 @OneToMany(mappedBy ="jobPosition")
+	 private List<JobPosting> jobPostings;
 	
 
 }
