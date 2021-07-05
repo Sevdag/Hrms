@@ -15,6 +15,7 @@ import com.Hrms.Hrms.Core.utilities.results.SuccessResult;
 import com.Hrms.Hrms.Core.utilities.userCheck.UserCheckService;
 import com.Hrms.Hrms.DataAccess.Abstract.CandidateDao;
 import com.Hrms.Hrms.Entities.Concrete.Candidate;
+import com.Hrms.Hrms.Entities.Concrete.dtos.CandidateWithCvTable;
 
 @Service
 public class CandidateManager implements CandidateService {

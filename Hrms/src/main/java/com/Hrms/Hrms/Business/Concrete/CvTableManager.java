@@ -35,6 +35,11 @@ public class CvTableManager implements CvTableService {
 		
 		return new SuccessDataResult<List<CvTable>>(this.cvTableDao.findAll(),"Listelendi");
 	}
+	@Override
+	public DataResult<List<CandidateWithCvTable>> candidateWithCvTables(Integer id) {
+		// TODO Auto-generated method stub
+		return new SuccessDataResult<List<CandidateWithCvTable>>(this.cvTableDao.candidateWithCvTables(id));
+	}
 
 
 	

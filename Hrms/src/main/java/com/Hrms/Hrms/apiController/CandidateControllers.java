@@ -11,6 +11,7 @@ import com.Hrms.Hrms.Business.Abstract.CandidateService;
 import com.Hrms.Hrms.Core.utilities.results.DataResult;
 import com.Hrms.Hrms.Core.utilities.results.Result;
 import com.Hrms.Hrms.Entities.Concrete.Candidate;
+import com.Hrms.Hrms.Entities.Concrete.dtos.CandidateWithCvTable;
 
 @RestController
 @RequestMapping("/api/candidatescontrollers")
@@ -32,5 +33,7 @@ public class CandidateControllers {
 	public Result add(Candidate candidate) {
 		return this.candidateService.add(candidate);
 	}
+	
+	
 
 }

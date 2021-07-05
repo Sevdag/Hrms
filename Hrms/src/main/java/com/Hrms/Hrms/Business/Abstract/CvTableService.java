@@ -10,4 +10,6 @@ import com.Hrms.Hrms.Entities.Concrete.dtos.CandidateWithCvTable;
 public interface CvTableService {
 Result add(CvTable cvTable);
 DataResult <List<CvTable>> getAll();
+DataResult<List<CandidateWithCvTable>> candidateWithCvTables(Integer id);
+
 }

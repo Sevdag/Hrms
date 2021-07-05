@@ -17,6 +17,7 @@ public class CandidateWithCvTable {
 	private String githubLink;
 	private String description;
 	private String schoolName;
+	private String department;
 	private Date startedDate;
 	private Date endDate;
 	private String languageName;
